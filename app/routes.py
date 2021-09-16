@@ -1,10 +1,10 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import LoginForm
-from flask_login import login_required, current_user, login_user, logout_user
+#from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 from app.models import User
-from app.forms import RegistrationForm, EditProfileForm
+#from app.forms import RegistrationForm, EditProfileForm
 from datetime import datetime
 
 @app.route('/')
@@ -12,7 +12,7 @@ from datetime import datetime
 def home():
   return render_template('base.html', title = 'panini')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
   form = LoginForm()
   return render_template('login.html', title = 'login - panini', form=form)
