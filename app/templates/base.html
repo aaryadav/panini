@@ -12,9 +12,15 @@
     <div class = "container">
       <div class = "navbar">
         <ul class = "menu">
-            <li class = "title"><a href="/home"><b>panini</b></a></li>
-            <li><a href="/login">login</a></li>
-
+				<div>
+	        Microblog:
+					<li class = "title"><a href="{{ url_for('home') }}">Home</a></li>
+	        {% if current_user.is_anonymous %}
+	        <li><a href="{{ url_for('login') }}">Login</a></li>
+	        {% else %}
+	        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+	        {% endif %}
+		    </div>
         </ul>
       </div>
       <div class="content-container">
