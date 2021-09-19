@@ -4,12 +4,11 @@ from app.forms import LoginForm, RegistrationForm
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 from app.models import User
-#from app.forms import RegistrationForm, EditProfileForm
 from datetime import datetime
 
 @app.route('/')
 @app.route('/home')
-@login_required
+#@login_required
 def home():
   return render_template('index.html', title = 'panini')
 
@@ -47,7 +46,6 @@ def register():
 		db.session.add(user)
 		db.session.commit()
 		flash('Congratulations, you are now a registered user!')
-		return redirect(url_for('login'))
 		return redirect(url_for('login'))
 	return render_template('register.html', title='Register', form=form)
 	

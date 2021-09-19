@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>{{ title }}</title>
-<!--    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.png"/>-->
+    <title>Panini</title>
+   <!-- <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.png"/> -->
     <link href="static/style.css" rel="stylesheet" type="text/css" />
 
   </head>
@@ -12,21 +12,21 @@
     <div class = "container">
       <div class = "navbar">
         <ul class = "menu">
-				<div>
-	        Panini:
-					<li class = "title"><a href="{{ url_for('home') }}">Home</a></li>
-	        {% if current_user.is_anonymous %}
-	        <li><a href="{{ url_for('login') }}">Login</a></li>
+					<li class = "title"><a href="{{ url_for('home') }}"><b>Panini</b></a></li>
+          <div class = "actions">
+          {% if current_user.is_anonymous %}
+	        <li><a href="{{ url_for('login') }}"><div class="action">Sign in</div></a></li>
+	        <li><a href="{{ url_for('register') }}"><div class="action">Sign up</div></a></li>
 	        {% else %}
-	        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+	        <li><a href="{{ url_for('logout') }}"><div class="action">Sign out</div></a></li>
 	        {% endif %}
-		    </div>
+		      </div>
         </ul>
       </div>
       <div class="content-container">
         <div class="content">
-      {% block content %}
-      {% endblock  %}
+      	{% block content %}
+      	{% endblock  %} 
         </div>
       </div>
     </div>
